@@ -29,6 +29,6 @@ flutter:
   fonts:
     - family: SF Pro Text
       fonts:
-        - asset: assets/fonts/SFProText-Regular.ttf
-        - asset: assets/fonts/SFProText-Bold.ttf
+        - asset: asset/fonts/SFProText-Regular.ttf
+        - asset: asset/fonts/SFProText-Bold.ttf
           weight: 800

@@ -1,6 +1,6 @@
 {
-    "name": "basic_app_",
-    "short_name": "basic_app_",
+    "name": "designcode",
+    "short_name": "designcode",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
