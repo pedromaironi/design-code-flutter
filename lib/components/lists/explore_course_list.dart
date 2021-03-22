@@ -6,7 +6,7 @@ class ExploreCourseList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom:100.0),
+      padding: const EdgeInsets.only(bottom:150.0),
       child: Container(
         height: 120,
         child: ListView.builder(

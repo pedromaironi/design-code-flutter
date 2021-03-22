@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 
+// ignore: must_be_immutable
 class RecentCourseCard extends StatelessWidget {
   
   RecentCourseCard({this.course});
