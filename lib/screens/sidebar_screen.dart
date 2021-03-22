@@ -6,32 +6,28 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class SidebarScreen extends StatelessWidget {
-  const SidebarScreen({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: kSidebarBackgroundColor,
         borderRadius: BorderRadius.only(
-          topRight: Radius.circular(34.0)
-        )
+          topRight: Radius.circular(34.0),
+        ),
       ),
       height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.height * 0.85,
+      width: MediaQuery.of(context).size.width * 0.85,
       padding: EdgeInsets.symmetric(
         vertical: 35.0,
-        horizontal: 20.0
+        horizontal: 20.0,
       ),
       child: SafeArea(
-              child: Column(
+        child: Column(
           children: [
             Row(
               children: [
                 CircleAvatar(
-                  backgroundImage: AssetImage("asset/images/me.png"),
+                  backgroundImage: AssetImage('asset/images/me.png'),
                   radius: 21.0,
                 ),
                 SizedBox(
@@ -40,47 +36,61 @@ class SidebarScreen extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Pedro Maironi",
-                    style: kHeadlineLabelStyle
+                    Text(
+                      "Pedro Maironi Toribio",
+                      style: kHeadlineLabelStyle,
                     ),
                     SizedBox(
                       height: 4,
                     ),
-                    Text("License ends on 29 June, 2021")
+                    Text(
+                      "License ends on 29 June, 2021",
+                      style: kSearchPlaceholderStyle,
+                    )
                   ],
-                ),
+                )
               ],
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.08,
+            ),
             SidebarRow(
               item: sidebarItem[0],
             ),
-            SizedBox(height: 32.0),
+            SizedBox(
+              height: 32.0,
+            ),
             SidebarRow(
               item: sidebarItem[1],
             ),
-            SizedBox(height: 32.0),
+            SizedBox(
+              height: 32.0,
+            ),
             SidebarRow(
               item: sidebarItem[2],
             ),
-            SizedBox(height: 32.0),
+            SizedBox(
+              height: 32.0,
+            ),
             SidebarRow(
               item: sidebarItem[3],
             ),
-            SizedBox(height: 32.0),
+            SizedBox(
+              height: 32.0,
+            ),
             Spacer(),
             Row(
               children: [
                 Image.asset(
                   'asset/icons/icon-logout.png',
-                   width: 17.0
+                  width: 17.0,
                 ),
                 SizedBox(
-                  width: 12.0
+                  width: 12.0,
                 ),
                 Text(
                   "Log out",
-                  style: kSecondaryCalloutLabelStyle
+                  style: kSecondaryCalloutLabelStyle,
                 )
               ],
             )
@@ -89,4 +99,5 @@ class SidebarScreen extends StatelessWidget {
       ),
     );
   }
+
 }
