@@ -1,5 +1,4 @@
 import 'package:designcode/components/cards/recent_course_cards.dart';
-import 'package:designcode/main.dart';
 import 'package:designcode/model/course.dart';
 import 'package:designcode/screens/course_screen.dart';
 import 'package:flutter/material.dart';
