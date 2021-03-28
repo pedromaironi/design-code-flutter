@@ -26,12 +26,12 @@ class RecentCourseCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(41.0),
               boxShadow: [
                 BoxShadow(
-                  color: course.background.colors[0].withOpacity(0.3), 
+                  color: course.background.colors[0].withOpacity(0.3),
                   offset: Offset(0,20),
                   blurRadius: 30.0
                 ),
                 BoxShadow(
-                  color: course.background.colors[1].withOpacity(0.3), 
+                  color: course.background.colors[1].withOpacity(0.3),
                   offset: Offset(0,20),
                   blurRadius: 30.0
                 ),
@@ -43,7 +43,7 @@ class RecentCourseCard extends StatelessWidget {
                   padding: EdgeInsets.only(
                     top: 32.0,
                     left: 32.0,
-                    right: 32.0  
+                    right: 32.0
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
