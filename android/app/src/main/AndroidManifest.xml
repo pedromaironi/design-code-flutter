@@ -2,7 +2,7 @@
     package="com.example.designcode">
    <application
         android:label="designcode"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/app_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
