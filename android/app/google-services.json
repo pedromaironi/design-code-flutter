@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "374218943539",
+    "project_id": "designcode-4c0d8",
+    "storage_bucket": "designcode-4c0d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374218943539:android:200202c5f7d09f0f1a8746",
+        "android_client_info": {
+          "package_name": "com.pedromaironi.designcode"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374218943539-p7qrkqu80sgribar6ve7904t7dmddeg3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCKPnGwPR0oH0QpBwO-M-FPQOwGPkXRXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374218943539-p7qrkqu80sgribar6ve7904t7dmddeg3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
