@@ -1,6 +1,7 @@
 import 'package:designcode/constants.dart';
 import 'package:designcode/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -11,8 +12,7 @@ class LoginScreenState extends State<LoginScreen> {
 
   String email;
   String password;
-
-  
+  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -164,13 +164,52 @@ class LoginScreenState extends State<LoginScreen> {
                             Row(
                               children: [
                                 GestureDetector(
-                                  onTap: (){
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => HomeScreen(),
-                                      )
-                                    );
+                                  onTap: () async { 
+                                    try{
+                                      await _auth.signInWithEmailAndPassword(
+                                        email: email, 
+                                        password: password
+                                      );
+                                      navigator(context);
+                                    } on FirebaseAuthException catch (err) {
+                                      if(err.code == "user-not-found") {
+                                        try{
+                                          await _auth.createUserWithEmailAndPassword(
+                                            email: email,
+                                            password: password
+                                          ).then((user) => {
+                                            navigator(context),
+                                          });
+                                        } catch (err) {
+
+                                        }
+                                      } else {
+                                        showDialog(
+                                          context: context,
+                                          builder: (context) {
+                                            return AlertDialog(
+                                              title: Text(
+                                                "Error"
+                                              ),
+                                              content: Text(
+                                                err.message
+                                              ),
+                                              actions: [
+                                                // ignore: deprecated_member_use
+                                                FlatButton(
+                                                  onPressed: (){
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  child: Text(
+                                                    "Ok!"
+                                                  ),
+                                                )
+                                              ],
+                                            );
+                                          }
+                                        );
+                                      }
+                                    }
                                   },
                                   child: Container(
                                     child: Text(
@@ -219,4 +258,14 @@ class LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+}
+
+void navigator (BuildContext context) {
+  Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomeScreen(),
+            fullscreenDialog: false
+          ),
+        );
 }
