@@ -1,6 +1,8 @@
+import 'package:designcode/screens/home_screen.dart';
 import 'package:designcode/screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +19,10 @@ class MyApp extends StatelessWidget {
         {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: LoginScreen(),
+            home: LoginScreen()
+            // (FirebaseAuth.instance.currentUser == null)
+            // ? LoginScreen()
+            // : HomeScreen(),
           );
         }else{
           return MaterialApp(

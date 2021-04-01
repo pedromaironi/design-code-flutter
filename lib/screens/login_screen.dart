@@ -177,8 +177,9 @@ class LoginScreenState extends State<LoginScreen> {
                                           await _auth.createUserWithEmailAndPassword(
                                             email: email,
                                             password: password
-                                          ).then((user) => {
-                                            navigator(context),
+                                          ).then((user){
+                                            user.user.sendEmailVerification();
+                                            navigator(context);
                                           });
                                         } catch (err) {
 
@@ -239,11 +240,44 @@ class LoginScreenState extends State<LoginScreen> {
                               height: 15.0,
 
                             ),
-                            Container(
-                              child: Text(
-                                "Forgot Password?",
-                                style: kCalloutLabelStyle.copyWith(
-                                  color: Color(0x721B1E9C)
+                            GestureDetector(
+                              onTap: () {
+                                _auth
+                                  .sendPasswordResetEmail(
+                                  email: email
+                                ).then((value) => {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        title: Text(
+                                          "Email Sent!"
+                                        ),
+                                        content: Text(
+                                          "The password reset email has been sent!"
+                                        ),
+                                        actions: [
+                                          // ignore: deprecated_member_use
+                                          FlatButton(
+                                            onPressed: (){
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text(
+                                              "Ok!"
+                                            ),
+                                          )
+                                        ],
+                                      );
+                                    }
+                                  )
+                                });
+                              },
+                              child: Container(
+                                child: Text(
+                                  "Forgot Password?",
+                                  style: kCalloutLabelStyle.copyWith(
+                                    color: Color(0x721B1E9C)
+                                  ),
                                 ),
                               ),
                             )
